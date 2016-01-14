@@ -107,7 +107,7 @@ void playTime(minesweeper& play) {
     do {
         cin.clear();
         cin.ignore(100,'\n');
-        cout << "Click(l to reveal & r to mark i.e. \"l,row,col\"): ";
+        cout << "Enter (l to reveal & r to mark i.e. \"l,row,col\"): ";
         cin >> click >> coma >> row >> coma >> col;
         //  Display invalid input.
         if((click!='l' && click!='L' && click!='r' && click!='R') || row<0 || row>play.getRowNum()-1 || col<0 || col>play.getColNum()-1)
@@ -210,23 +210,7 @@ void printBoard(minesweeper& play, vector<vector<bool>>& marked){
     int nRow = play.getRowNum();
     char tile;
     cout << endl;
-    //  Column Index
     
-    cout << ' ' << ' ' ;
-    if (nRow>9){
-        cout << ' ' ;
-    }
-    for (int k=0;k<nCol;k++){
-        if (k>10){cout << setw(2);}
-        else if (nCol>9){
-            cout << setw(2);
-            cout << ' ' ;
-        }
-        
-        cout << ' ' << k;
-    }
-    cout << "\n" << endl;
-
     //  Actual board
     for (int i=0; i<nRow;i++){
         
@@ -259,4 +243,24 @@ void printBoard(minesweeper& play, vector<vector<bool>>& marked){
         cout << endl;
         cout << endl;
     }
+    
+    //  For Debugging
+    /*  Print revealed board
+     //  Column Index
+     
+     cout << ' ' << ' ' ;
+     if (nRow>9){
+     cout << ' ' ;
+     }
+     for (int k=0;k<nCol;k++){
+     if (k>10){cout << setw(2);}
+     else if (nCol>9){
+     cout << setw(2);
+     cout << ' ' ;
+     }
+     
+     cout << ' ' << k;
+     }
+     cout << "\n" << endl;
+     */
 }
